@@ -2,7 +2,7 @@ package domain;
 
 public class Address {
     private int AddressId;
-    private String providence;
+    private String province;
     private String city;
     private String streetName;
     private String postalCode;
@@ -23,12 +23,12 @@ public class Address {
         AddressId = addressId;
     }
 
-    public String getProvidence() {
-        return providence;
+    public String getProvince() {
+        return province;
     }
 
-    public void setProvidence(String providence) {
-        this.providence = providence;
+    public void setProvince(String province) {
+        this.province = province;
     }
 
     public String getCity() {
