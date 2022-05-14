@@ -31,7 +31,7 @@ public class DatabaseInitializer {
                 "primary key (product_id)," +
                 "constraint product_id_fk" +
                 "foreign key (product_id)" +
-                "references product(product_id)" +
+                "references product(litterateur_product_id)" +
                 "on delete no action" +
                 "on UPDATE no action)";
         Statement statement = connection.createStatement();
@@ -46,7 +46,7 @@ public class DatabaseInitializer {
                 "primary key (product_id)," +
                 "constraint product_id_fk" +
                 "foreign key (product_id)" +
-                "references product(product_id)" +
+                "references product(shoes_product_id)" +
                 "on delete no action" +
                 "on UPDATE no action)";
         Statement statement = connection.createStatement();
@@ -61,7 +61,7 @@ public class DatabaseInitializer {
                 "primary key (product_id)," +
                 "constraint product_id_fk" +
                 "foreign key (product_id)" +
-                "references product(product_id)" +
+                "references product(electronics_product_id)" +
                 "on delete no action" +
                 "on UPDATE no action)";
         Statement statement = connection.createStatement();

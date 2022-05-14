@@ -15,6 +15,10 @@ public class Cart {
             System.out.println("cart is full");
     }
 
+    public ArrayList<int[]> getItems() {
+        return items;
+    }
+
     public void removeFromCart(int productPlacement) {
         items.remove(productPlacement - 1);
     }
