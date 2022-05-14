@@ -1,16 +1,25 @@
 package domain;
 
+import java.util.Scanner;
+
 public class Product {
     private int productId;
+    private int productType;
     private int availableUnits;
-    private int price;
+    private int pricePerUnit;
 
     public Product() {
 
     }
 
-    public Product(int productId) {
+    public Product(int productId, int productType) {
         this.productId = productId;
+        this.productType = productType;
+        Scanner intInput = new Scanner(System.in);
+        System.out.print("enter the price per unit: ");
+        pricePerUnit = intInput.nextInt();
+        System.out.print("enter number of available units: ");
+        availableUnits = intInput.nextInt();
     }
 
     public int getAvailableUnits() {
@@ -25,11 +34,11 @@ public class Product {
         availableUnits += diffrence;
     }
 
-    public int getPrice() {
-        return price;
+    public int getPricePerUnit() {
+        return pricePerUnit;
     }
 
-    public void setPrice(int price) {
-        this.price = price;
+    public void setPricePerUnit(int pricePerUnit) {
+        this.pricePerUnit = pricePerUnit;
     }
 }
