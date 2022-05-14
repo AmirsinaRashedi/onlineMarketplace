@@ -33,7 +33,7 @@ public class DatabaseInitializer {
                 "foreign key (product_id)" +
                 "references product(product_id)" +
                 "on delete no action" +
-                "on insert no action)";
+                "on UPDATE no action)";
         Statement statement = connection.createStatement();
         statement.executeUpdate(createLitterateurTableDDL);
     }
@@ -48,7 +48,7 @@ public class DatabaseInitializer {
                 "foreign key (product_id)" +
                 "references product(product_id)" +
                 "on delete no action" +
-                "on insert no action)";
+                "on UPDATE no action)";
         Statement statement = connection.createStatement();
         statement.executeUpdate(createShoesTableDDL);
     }
@@ -63,7 +63,7 @@ public class DatabaseInitializer {
                 "foreign key (product_id)" +
                 "references product(product_id)" +
                 "on delete no action" +
-                "on insert no action)";
+                "on UPDATE no action)";
         Statement statement = connection.createStatement();
         statement.executeUpdate(createElectronicsTableDDL);
     }
