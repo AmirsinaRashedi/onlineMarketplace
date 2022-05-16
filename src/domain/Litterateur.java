@@ -2,12 +2,12 @@ package domain;
 
 import java.util.Scanner;
 
-public class litterateur extends Product {
+public class Litterateur extends Product {
     private String litterateurtitle;
     private String litterateurType;
     private String litterateurAuthor;
 
-    public litterateur(int productId) {
+    public Litterateur(int productId) {
         super(productId, 3);
         Scanner stringInput = new Scanner(System.in);
         System.out.print("enter the title: ");
@@ -16,5 +16,17 @@ public class litterateur extends Product {
         litterateurType = stringInput.nextLine();
         System.out.print("enter name of the author: ");
         litterateurAuthor = stringInput.nextLine();
+    }
+
+    public String getLitterateurtitle() {
+        return litterateurtitle;
+    }
+
+    public String getLitterateurType() {
+        return litterateurType;
+    }
+
+    public String getLitterateurAuthor() {
+        return litterateurAuthor;
     }
 }
