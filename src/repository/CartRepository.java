@@ -51,8 +51,6 @@ public class CartRepository {
 
                         if (cart.addToCart(addArgument))
                             System.out.println("item added to cart");
-                        else
-                            System.out.println("cart is full");
 
                     } else
 
