@@ -25,13 +25,15 @@ public class OnlineMarketplaceApplication {
 
                 applicationContext.getSecurityContext().setCurrentUser(applicationContext.getUserRepository().defineNewUser());
 
-                applicationContext.getCartRepository().startShopping();
+                if (applicationContext.getSecurityContext().getCurrentUser() != null)
+                    applicationContext.getCartRepository().startShopping();
 
             } else if (choice == 2) {
 
                 applicationContext.getSecurityContext().setCurrentUser(applicationContext.getUserRepository().loginToUser());
 
-                applicationContext.getCartRepository().startShopping();
+                if (applicationContext.getSecurityContext().getCurrentUser() != null)
+                    applicationContext.getCartRepository().startShopping();
 
 
             } else if (choice == 3)

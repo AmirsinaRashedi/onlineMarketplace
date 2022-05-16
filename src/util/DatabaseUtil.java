@@ -14,7 +14,7 @@ public class DatabaseUtil {
         Class.forName("com.mysql.cj.jdbc.Driver");
         username = "root";
         password = "";
-        databaseURL = "jdbc:mysql://localhost:3306";
+        databaseURL = "jdbc:mysql://localhost:3306/online_marketplace";
         connection = DriverManager.getConnection(databaseURL, username, password);
     }
 
