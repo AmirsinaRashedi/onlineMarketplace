@@ -43,22 +43,26 @@ public class UserRepository {
     }
 
 
-    public int loginToUser() throws SQLException {
+    public User loginToUser() throws SQLException {
         System.out.print("enter username: ");
 
         Scanner stringInput = new Scanner(System.in);
 
-        String selectStarWhereUsernameQuery = "select user_id , password from user where user_name = ?";
+        String selectStarWhereUsernameQuery = "select * from user where user_name = ?";
 
         PreparedStatement preparedStatement = connection.prepareStatement(selectStarWhereUsernameQuery);
 
-        preparedStatement.setString(1, stringInput.nextLine());
+        User user = new User();
+
+        user.setUsername(stringInput.nextLine());
+
+        preparedStatement.setString(1, user.getUsername());
 
         ResultSet resultSet = preparedStatement.executeQuery();
 
         if (resultSet.next()) {
 
-            String userPassword = resultSet.getString(2);
+            String userPassword = resultSet.getString("Password");
 
             System.out.print("enter password: ");
 
@@ -66,19 +70,26 @@ public class UserRepository {
 
             if (enteredPassword.equals(userPassword)) {
 
+                user.setUserId(resultSet.getInt("user_id"));
+                user.setPassword(resultSet.getString("password"));
+                user.setRealName(resultSet.getString("real_name"));
+                user.setLastName(resultSet.getString("last_name"));
+                user.setEmail(resultSet.getString("email"));
+                user.setPhoneNumber(resultSet.getString("phone_number"));
+
                 System.out.println("login successful!");
-                return resultSet.getInt(1);
+                return user;
 
             } else {
 
                 System.out.println("incorrect password!");
-                return 0;
+                return null;
 
             }
         } else {
 
             System.out.println("user not found!");
-            return 0;
+            return null;
 
         }
 
@@ -141,6 +152,8 @@ public class UserRepository {
             return user;
 
         } else {
+
+            System.out.println("this username is taken");
 
             return null;
 
