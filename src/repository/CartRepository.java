@@ -85,7 +85,7 @@ public class CartRepository {
 
             } else if (choice == 3) {
 
-                int count = 1;
+                int count = 1, totalPrice = 0;
 
                 for (int[] item : cart.getItems()) {
 
@@ -93,7 +93,7 @@ public class CartRepository {
 
                     count++;
 
-                    productRepository.printProductFromCart(item);
+                    totalPrice += productRepository.printProductFromCart(item);
 
                 }
 
