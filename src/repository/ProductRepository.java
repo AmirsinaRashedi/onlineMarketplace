@@ -85,7 +85,7 @@ public class ProductRepository {
         String selectStarFromProductsQuery = "select * from product as p " +
                 "left join electronics as e on p.product_id = e.product_id " +
                 "left join shoes as s on s.product_id = p.product_id " +
-                "left join litterateur as l on l.product_id = p.product_id where product_id = ? ";
+                "left join litterateur as l on l.product_id = p.product_id where p.product_id = ? ";
 
         PreparedStatement preparedStatement = connection.prepareStatement(selectStarFromProductsQuery);
 
