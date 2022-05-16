@@ -45,7 +45,7 @@ public class CartRepository {
                     System.out.print("enter the quantity of your purchase: ");
                     int choiceAmount = intInput.nextInt();
 
-                    if (choiceAmount > 0 && choiceAmount < productRepository.checkAvailableAmount(choiceAmount)) {
+                    if (choiceAmount > 0 && choiceAmount < productRepository.checkAvailableAmount(choice)) {
 
                         int addArgument[] = {choice, choiceAmount};
 
@@ -96,6 +96,7 @@ public class CartRepository {
                     totalPrice += productRepository.printProductFromCart(item);
 
                 }
+                System.out.println("totalPrice: " + totalPrice);
 
             } else if (choice == 4) {
 
