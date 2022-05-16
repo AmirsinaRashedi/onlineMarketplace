@@ -40,12 +40,12 @@ public class CartRepository {
                 System.out.print("type the id of the product you want to add: ");
                 choice = intInput.nextInt();
 
-                if (choice > 0 && choice < productId) {
+                if (choice > 0 && choice <= productId) {
 
                     System.out.print("enter the quantity of your purchase: ");
                     int choiceAmount = intInput.nextInt();
 
-                    if (choiceAmount > 0 && choiceAmount < productRepository.checkAvailableAmount(choice)) {
+                    if (choiceAmount > 0 && choiceAmount <= productRepository.checkAvailableAmount(choice)) {
 
                         int addArgument[] = {choice, choiceAmount};
 
