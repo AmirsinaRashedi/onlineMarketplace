@@ -9,6 +9,14 @@ public class Cart {
     }
 
     public boolean addToCart(int[] productIdAndQuantity) {
+        int count = -1;
+        for (int[] item : items) {
+            count++;
+            if (item[0] == productIdAndQuantity[0]) {
+                items.set(count, productIdAndQuantity);
+                return true;
+            }
+        }
         if (items.size() < 5) {
             this.items.add(productIdAndQuantity);
             return true;
