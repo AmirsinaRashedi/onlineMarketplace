@@ -82,9 +82,12 @@ public class ProductRepository {
     }
 
     public int printProductFromCart(int item[]) throws SQLException {
-        String selectStarFromProductQuarry = "select * from product where product_id = ?";
+        String selectStarFromProductsQuery = "select * from product as p " +
+                "left join electronics as e on p.product_id = e.product_id " +
+                "left join shoes as s on s.product_id = p.product_id " +
+                "left join litterateur as l on l.product_id = p.product_id where product_id = ? ";
 
-        PreparedStatement preparedStatement = connection.prepareStatement(selectStarFromProductQuarry);
+        PreparedStatement preparedStatement = connection.prepareStatement(selectStarFromProductsQuery);
 
         preparedStatement.setInt(1, item[0]);
 
