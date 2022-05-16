@@ -8,11 +8,14 @@ public class Cart {
     public Cart() {
     }
 
-    public void addToCart(int[] productIdAndQuantity) {
-        if (items.size() < 6)
+    public boolean addToCart(int[] productIdAndQuantity) {
+        if (items.size() < 5) {
             this.items.add(productIdAndQuantity);
-        else
+            return true;
+        } else {
             System.out.println("cart is full");
+            return false;
+        }
     }
 
     public void removeFromCart(int productPlacement) {
