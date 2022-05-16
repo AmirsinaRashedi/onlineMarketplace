@@ -1,3 +1,4 @@
+import repository.StockRepository;
 import util.ApplicationContext;
 import util.Menu;
 
@@ -9,7 +10,7 @@ public class OnlineMarketplaceApplication {
 
         ApplicationContext applicationContext = new ApplicationContext();
 
-        Scanner intInput = new Scanner(System.in);
+        Scanner stringInput = new Scanner(System.in);
 
         Menu menu = new Menu();
 
@@ -19,16 +20,16 @@ public class OnlineMarketplaceApplication {
 
             System.out.print("choose: ");
 
-            int choice = intInput.nextInt();
+            String choice = stringInput.nextLine();
 
-            if (choice == 1) {
+            if (choice.equals("1")) {
 
                 applicationContext.getSecurityContext().setCurrentUser(applicationContext.getUserRepository().defineNewUser());
 
                 if (applicationContext.getSecurityContext().getCurrentUser() != null)
                     applicationContext.getCartRepository().startShopping();
 
-            } else if (choice == 2) {
+            } else if (choice.equals("2")) {
 
                 applicationContext.getSecurityContext().setCurrentUser(applicationContext.getUserRepository().loginToUser());
 
@@ -36,9 +37,12 @@ public class OnlineMarketplaceApplication {
                     applicationContext.getCartRepository().startShopping();
 
 
-            } else if (choice == 3)
+            } else if (choice.equals("3"))
                 break;
-            else
+            else if (choice.equals("AccessStock")) {
+                StockRepository stockRepository = new StockRepository(applicationContext.getDatabaseUtil().getConnection(), applicationContext.getProductRepository());
+                stockRepository.printMenu();
+            } else
                 System.out.println("invalid entry");
         }
 
