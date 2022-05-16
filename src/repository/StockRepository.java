@@ -47,7 +47,7 @@ public class StockRepository {
 
             if (choiceAmount >= productRepository.checkAvailableAmount(choice) * -1) {
 
-                int[] addArgument = {choice, choiceAmount};
+                int[] addArgument = {choice, (choiceAmount * -1)};
 
                 productRepository.changeStock(addArgument);
 
