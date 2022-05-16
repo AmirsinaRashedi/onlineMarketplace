@@ -49,9 +49,10 @@ public class CartRepository {
 
                         int addArgument[] = {choice, choiceAmount};
 
-                        cart.addToCart(addArgument);
-
-                        System.out.println("item added to cart");
+                        if (cart.addToCart(addArgument))
+                            System.out.println("item added to cart");
+                        else
+                            System.out.println("cart is full");
 
                     } else
 
@@ -63,20 +64,22 @@ public class CartRepository {
 
             } else if (choice == 2) {
 
-                int count = 1;
+                int count = 0;
 
                 for (int[] item : cart.getItems()) {
 
-                    System.out.print(count + "- ");
-
                     count++;
+
+                    System.out.print(count + "- ");
 
                     productRepository.printProductFromCart(item);
 
                 }
 
-                System.out.print("select an item to remove: ");
-                choice = intInput.nextInt();
+                if (count > 0) {
+                    System.out.print("select an item to remove: ");
+                    choice = intInput.nextInt();
+                }
 
                 if (choice > 0 && choice < count)
                     cart.removeFromCart(choice);
@@ -85,18 +88,20 @@ public class CartRepository {
 
             } else if (choice == 3) {
 
-                int count = 1, totalPrice = 0;
+                int count = 0, totalPrice = 0;
 
                 for (int[] item : cart.getItems()) {
 
-                    System.out.print(count + "- ");
-
                     count++;
+
+                    System.out.print(count + "- ");
 
                     totalPrice += productRepository.printProductFromCart(item);
 
                 }
-                System.out.println("totalPrice: " + totalPrice);
+
+                if (count > 0)
+                    System.out.println("totalPrice: " + totalPrice);
 
             } else if (choice == 4) {
 
