@@ -79,7 +79,7 @@ public class CartRepository {
                     choice = intInput.nextInt();
                 }
 
-                if (choice > 0 && choice < count)
+                if (choice > 0 && choice <= count)
                     cart.removeFromCart(choice);
                 else
                     System.out.println("invalid choice");
