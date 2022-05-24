@@ -26,22 +26,26 @@ public class ProductRepository {
 
             maxId = resultSet.getInt(1);
 
-            if (resultSet.getString("model") != null)
-                System.out.print(resultSet.getString("model")
-                        + "    " + resultSet.getString("manufacturer") + "    ");
-            else if (resultSet.getString("shoe_brand") != null)
-                System.out.print(resultSet.getString("shoe_brand")
-                        + "    " + resultSet.getString("shoe_type") + "    ");
-            else if (resultSet.getString("litterateur_title") != null)
-                System.out.print(resultSet.getString("litterateur_title")
-                        + "    " + resultSet.getString("litterateur_type") + "    "
-                        + resultSet.getString("litterateur_author") + "    ");
+            printResultsetProducts(resultSet);
 
             System.out.println("price: " + resultSet.getInt(3) + "\t"
                     + "in stock: " + resultSet.getInt(2));
         }
 
         return maxId;
+    }
+
+    private void printResultsetProducts(ResultSet resultSet) throws SQLException {
+        if (resultSet.getString("model") != null)
+            System.out.print("model: " + resultSet.getString("model")
+                    + "    " + "manufacturer: " + resultSet.getString("manufacturer") + "   (Electronic)" + "    ");
+        else if (resultSet.getString("shoe_brand") != null)
+            System.out.print("brand: " + resultSet.getString("shoe_brand")
+                    + "    " + "type : " + resultSet.getString("shoe_type") + "   (shoe) " + "    ");
+        else if (resultSet.getString("litterateur_title") != null)
+            System.out.print("title : " + resultSet.getString("litterateur_title")
+                    + "    " + "type : " + resultSet.getString("litterateur_type") + "    "
+                    + "author : " + resultSet.getString("litterateur_author") + "   (litterateur)" + "    ");
     }
 
     public void changeStock(int[] idAndQuantity) throws SQLException {
@@ -96,16 +100,7 @@ public class ProductRepository {
         int price = 0;
 
         while (resultSet.next()) {
-            if (resultSet.getString("model") != null)
-                System.out.print(resultSet.getString("model")
-                        + "    " + resultSet.getString("manufacturer") + "    ");
-            else if (resultSet.getString("shoe_brand") != null)
-                System.out.print(resultSet.getString("shoe_brand")
-                        + "    " + resultSet.getString("shoe_type") + "    ");
-            else if (resultSet.getString("litterateur_title") != null)
-                System.out.print(resultSet.getString("litterateur_title")
-                        + "    " + resultSet.getString("litterateur_type") + "    "
-                        + resultSet.getString("litterateur_author") + "    ");
+            printResultsetProducts(resultSet);
 
             price += (resultSet.getInt("price_per_unit") * item[1]);
         }
