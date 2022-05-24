@@ -97,15 +97,15 @@ public class ProductRepository {
 
         while (resultSet.next()) {
             if (resultSet.getString("model") != null)
-                System.out.print(resultSet.getString("model")
-                        + "    " + resultSet.getString("manufacturer") + "    ");
+                System.out.print("model: " + resultSet.getString("model")
+                        + "    " + "manufacturer: " + resultSet.getString("manufacturer") + "   (Electronic)" + "    ");
             else if (resultSet.getString("shoe_brand") != null)
-                System.out.print(resultSet.getString("shoe_brand")
-                        + "    " + resultSet.getString("shoe_type") + "    ");
+                System.out.print("brand: " + resultSet.getString("shoe_brand")
+                        + "    " + "type : " + resultSet.getString("shoe_type") + "   (shoe) " + "    ");
             else if (resultSet.getString("litterateur_title") != null)
-                System.out.print(resultSet.getString("litterateur_title")
-                        + "    " + resultSet.getString("litterateur_type") + "    "
-                        + resultSet.getString("litterateur_author") + "    ");
+                System.out.print("title : " + resultSet.getString("litterateur_title")
+                        + "    " + "type : " + resultSet.getString("litterateur_type") + "    "
+                        + "author : " + resultSet.getString("litterateur_author") + "   (litterateur)" + "    ");
 
             price += (resultSet.getInt("price_per_unit") * item[1]);
         }
